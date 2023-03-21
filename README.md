@@ -7,4 +7,4 @@ CohortDiagnostics for long covid and pasc vaccine effectiveness study
 4) After running you should then have a zip folder with results to share in your output folder.
 
 ## Resuts
-To take a look at the results you cna use the following template: https://github.com/oxford-pharmacoepi/DiagnosticsExplorerTemplate
+To take a look at the results you can use the following template: https://github.com/oxford-pharmacoepi/DiagnosticsExplorerTemplate
