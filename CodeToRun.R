@@ -53,6 +53,12 @@ results_database_schema <- "..."
 # Note, any existing tables in your results schema with the same name will be overwritten
 cohortTableStem <- "..."
 
+# Cohort Folder
+cohortFolder <- "..." # "CORIVA", "UiO", or "SIDIAP" (or "StudyCohorts" for the common ones)
+if (!(cohortFolder %in% c("CORIVA", "UiO", "SIDIAP", "StudyCohorts"))) {
+  stop('Please use one of the 4 options: "CORIVA", "UiO", "SIDIAP", or "StudyCohorts"')
+}
+
 # Run analysis ----
 source(here("RunAnalysis.R"))
 

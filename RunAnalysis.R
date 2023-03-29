@@ -1,10 +1,15 @@
 # Get cohort details -----
-cohortJsonFiles <- list.files(here("Cohorts"))
+if (cohortFolder == "StudyCohorts") {
+  cohortFolder <- here("Cohorts", "StudyCohorts")
+} else {
+  cohortFolder <- here("Cohorts", "DatabaseSpecific", cohortFolder)
+}
+cohortJsonFiles <- list.files(cohortFolder)
 cohortJsonFiles <- cohortJsonFiles[str_detect(cohortJsonFiles, ".json")]
 
 cohortDefinitionSet <- list()
 for(i in 1:length(cohortJsonFiles)){
-  working.json<-here("Cohorts", cohortJsonFiles[i])
+  working.json<-paste0(cohortFolder, "/", cohortJsonFiles[i])
   cohortJson <- readChar(working.json, file.info(working.json)$size)
   cohortExpression <- cohortExpressionFromJson(cohortJson) # generates the sql
   sql <- buildCohortQuery(
