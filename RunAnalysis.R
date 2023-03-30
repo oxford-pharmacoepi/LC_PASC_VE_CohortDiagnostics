@@ -16,6 +16,9 @@ for(i in 1:length(cohortJsonFiles)){
     cohortExpression, 
     options = CirceR::createGenerateOptions(generateStats = TRUE)
   )
+  if (cohortJsonFiles[i] == "[LC AtRisk] EST_Obesity_BMI40.json") {
+    sql <- gsub("40,0000", "40.0000", sql)
+  }
 
   cohortDefinitionSet[[i]] <- tibble(
     atlasId = i,
